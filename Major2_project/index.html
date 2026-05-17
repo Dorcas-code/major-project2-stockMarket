@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-regal-blue: #243c5a;
+        --color-light-purple: #ce9ffc;
+        --color-dark-purple: #00a1ff;
+        --color-gray: #94a3b8;
+      }
+    </style>
+    <title>Major Project 2</title>
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <header class="container flex p-4">
+      <h1 class="mb-1">
+        <i class="fa-solid fa-arrow-trend-up"></i> StockTrackerPro
+      </h1>
+      <nav>
+        <a href="#"> Portfolio Value: 0.00</a>
+        <a href="#"> Stocks Owned: 0 </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="feature">
+        <section class="todo-input-section">
+          <form id="todo-form" class="todo-form">
+            <div class="input-group">
+              <input
+                type="text"
+                id="todo-input"
+                placeholder="Enterstock symbol or company name (e.g., AAPL, Apple, Microsoft)"
+                required
+                aria-label="New todo item"
+              />
+              <button type="submit" class="add-btn">Search Stock</button>
+            </div>
+            <div id="error-message" class="error-message" role="alert"></div>
+          </form>
+        </section>
+        <section class="card-section mb-4">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 mx-8 w-screen text-gray text-5xl/7 font-medium"
+          >
+            <i class="fa-solid fa-arrow-trend-up"></i><br /><br />
+            <h3 class="text-sm font-medium mb-2 text-gray">
+              Search your stocks and add them to the watch list
+            </h3>
+          </div>
+        </section>
+        <section class="card-section mb-4">
+          <div class="p-4 bg-white rounded-lg shadow-md p-6 mb-4 m-4">
+            <i class="text-6xl mb-1 text-dark-purple fa-brands fa-html5"></i>
+            <h3 class="text-2xl/7 font-medium mb-2">
+              Frontend <br />development
+            </h3>
+            <span class="text-sm font-medium text-regal-blue">
+              HTML5, CSS3, JavaScript<br />
+              ES6+, React, Vue.js,<br />TypeScript, Bootstrap, <br />Tailwind
+              CSS
+            </span>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow-md p-8 mb-4 m-4">
+            <i class="text-5xl mb-2 text-dark-purple fa-solid fa-database"></i>
+            <h3 class="text-2xl/7 font-medium mb-2">Database & <br />Cloud</h3>
+            <span class="text-sm font-medium text-regal-blue">
+              MySQL, Google Cloud,<br />
+              Docker, Git
+            </span>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow-md p-6 mb-4 m-4">
+            <i
+              class="text-5xl mb-3 text-dark-purple fa-solid fa-paintbrush"
+            ></i>
+            <h3 class="text-2xl/7 font-medium mb-2">Design & Tools</h3>
+            <span class="text-sm font-medium text-regal-blue">
+              Figma, Adobe XD, <br />Responsive Design,
+              <br />Accessibility,<br />
+              Performance<br />
+              Optimization
+            </span>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="p-4">
+      <section class="mb-2">
+        <h1><i class="fa-solid fa-laptop-code"></i>DORCAS</h1>
+        Began with a Web technology degree, debugging, and building projects
+        that solve real-world problems.
+      </section>
+      <section>
+        <b>Quick Links</b><br />
+        Home<br />
+        Skills<br />
+        About
+      </section>
+      <section>
+        <b>Contact</b><br />
+        Email: hello@abc.com<br />
+        Phone: (555) 123-4567
+      </section>
+    </footer>
+  </body>
+</html>
