@@ -23,7 +23,15 @@ header {
   background-color: #305cde;
   color: #ffffff;
 }
-
+section.search-result {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
 img {
   border-radius: 10px;
   margin: 20px;
@@ -129,7 +137,9 @@ footer section {
 #todo-input:focus {
   outline: none;
   border-color: #ffffff99;
-  box-shadow: 0 8px 32px #00000026, 0 0 0 3px #ffffff1a;
+  box-shadow:
+    0 8px 32px #00000026,
+    0 0 0 3px #ffffff1a;
   transform: translateY(-2px);
 }
 
@@ -207,6 +217,24 @@ footer section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .todo-form .input-group {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+
+  .todo-controls {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .todo-actions {
+    flex-direction: column;
   }
   .number {
     font-size: 24px;
