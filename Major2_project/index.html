@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,16 +9,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="./app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <style type="text/tailwindcss">
       @theme {
         --color-regal-blue: #243c5a;
@@ -30,6 +27,7 @@
     <title>Major Project 2</title>
   </head>
   <body>
+    <script src="app.js"></script>
     <header class="container flex p-4">
       <h1 class="mb-1">
         <i class="fa-solid fa-arrow-trend-up"></i> StockTrackerPro
@@ -57,27 +55,14 @@
             <div id="error-message" class="error-message" role="alert"></div>
           </form>
         </section>
-        <section class="card-section search-result mb-4">
-          <div
-            id="search-result"
-            class="bg-white rounded-lg shadow-md p-6 mx-8 w-full text-gray text-5xl font-medium"
-          >
-            <h3 class="text-sm font-medium mb-2 text-gray">
-              Search result will appear here
-            </h3>
-          </div>
-        </section>
         <section class="card-section mb-4">
           <div
-            class="bg-white rounded-lg shadow-md p-6 mx-8 w-full text-gray text-5xl font-medium"
+            class="bg-white rounded-lg shadow-md p-6 mx-8 w-screen text-gray text-5xl/7 font-medium"
           >
             <i class="fa-solid fa-arrow-trend-up"></i><br /><br />
             <h3 class="text-sm font-medium mb-2 text-gray">
               Search your stocks and add them to the watch list
             </h3>
-            <ul id="todo-list" class="todo-list">
-              <!-- Dynamic todo items will be inserted here -->
-            </ul>
           </div>
         </section>
         <section class="card-section mb-4">
