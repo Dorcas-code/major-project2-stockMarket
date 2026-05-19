@@ -23,7 +23,15 @@ header {
   background-color: #305cde;
   color: #ffffff;
 }
-
+section.search-result {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
 img {
   border-radius: 10px;
   margin: 20px;
@@ -85,7 +93,19 @@ footer {
 
   flex-wrap: wrap;
 }
+.search-result div {
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+}
 
+.drop {
+  color: red !important;
+}
+
+.rise {
+  color: green !important;
+}
 .footer_logo {
   color: blue;
   font-weight: 700;
@@ -129,7 +149,9 @@ footer section {
 #todo-input:focus {
   outline: none;
   border-color: #ffffff99;
-  box-shadow: 0 8px 32px #00000026, 0 0 0 3px #ffffff1a;
+  box-shadow:
+    0 8px 32px #00000026,
+    0 0 0 3px #ffffff1a;
   transform: translateY(-2px);
 }
 
@@ -180,6 +202,7 @@ footer section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
   }
 
   .hero {
@@ -200,13 +223,26 @@ footer section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 350px;
   }
   .card-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .todo-form .input-group {
+    flex-direction: column;
+  }
+
+  .todo-controls {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .todo-actions {
+    flex-direction: column;
   }
   .number {
     font-size: 24px;
@@ -229,6 +265,7 @@ footer section {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    max-width: 100%;
   }
 
   .hero {
@@ -270,6 +307,7 @@ footer section {
     align-items: center;
     justify-content: space-between;
     padding-left: 50px;
+    max-width: 100%;
   }
 
   .hero {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,13 +9,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="./app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <style type="text/tailwindcss">
       @theme {
         --color-regal-blue: #243c5a;
@@ -27,8 +30,7 @@
     <title>Major Project 2</title>
   </head>
   <body>
-    <script src="app.js"></script>
-    <header class="container flex p-4">
+    <header class="container flex p-4 w-full">
       <h1 class="mb-1">
         <i class="fa-solid fa-arrow-trend-up"></i> StockTrackerPro
       </h1>
@@ -55,50 +57,51 @@
             <div id="error-message" class="error-message" role="alert"></div>
           </form>
         </section>
-        <section class="card-section mb-4">
+             <section class="card-section search-result mb-4"  style=" width: 100%; display: block;">
+       
           <div
-            class="bg-white rounded-lg shadow-md p-6 mx-8 w-screen text-gray text-5xl/7 font-medium"
+            id="search-result"
+            class="bg-white rounded-lg shadow-md p-6 mx-8 text-gray text-5xl font-medium"
+          >
+          
+          </div>
+        </section>
+        <section class="card-section  mb-4"  style=" width: 100%; display: block;">
+          <h3 class="text-2xl/7 font-medium mb-2">
+            <i class="fa fa-heart text-dark-purple"></i> <b>Your Watchlist </b>
+          </h3>
+          <div
+            id=""
+            class="bg-white rounded-lg shadow-md p-6 mx-8 text-gray text-5xl font-medium"
+          >
+            <h3 class="text-sm font-medium mb-2 text-gray">
+              Search result will appear here
+            </h3>
+          </div>
+        </section>
+        <section class="card-section mb-4"  style=" width: 100%; display: block;">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 mx-8 text-gray text-5xl font-medium"
           >
             <i class="fa-solid fa-arrow-trend-up"></i><br /><br />
-            <h3 class="text-sm font-medium mb-2 text-gray">
+            <h3 class="text-sm font-medium mb-2 text-gray text-xs">
               Search your stocks and add them to the watch list
             </h3>
           </div>
         </section>
-        <section class="card-section mb-4">
-          <div class="p-4 bg-white rounded-lg shadow-md p-6 mb-4 m-4">
-            <i class="text-6xl mb-1 text-dark-purple fa-brands fa-html5"></i>
-            <h3 class="text-2xl/7 font-medium mb-2">
-              Frontend <br />development
+              <section class="card-section search-result mb-4"  style=" width: 100%; display: block;">
+          <h3 class="text-2xl font-medium mb-2" >
+            <i class="fa-solid fa-briefcase  text-dark-purple" ></i> <b>Portfolio Summary </b>
+          </h3><br>
+          <div
+            id="search-result" 
+            class="bg-white rounded-lg shadow-md p-6 mx-8 text-gray text-5xl font-medium"
+          >
+            <h3 class="text-sm font-medium mb-2 text-gray">
+              Search result will appear here
             </h3>
-            <span class="text-sm font-medium text-regal-blue">
-              HTML5, CSS3, JavaScript<br />
-              ES6+, React, Vue.js,<br />TypeScript, Bootstrap, <br />Tailwind
-              CSS
-            </span>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow-md p-8 mb-4 m-4">
-            <i class="text-5xl mb-2 text-dark-purple fa-solid fa-database"></i>
-            <h3 class="text-2xl/7 font-medium mb-2">Database & <br />Cloud</h3>
-            <span class="text-sm font-medium text-regal-blue">
-              MySQL, Google Cloud,<br />
-              Docker, Git
-            </span>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow-md p-6 mb-4 m-4">
-            <i
-              class="text-5xl mb-3 text-dark-purple fa-solid fa-paintbrush"
-            ></i>
-            <h3 class="text-2xl/7 font-medium mb-2">Design & Tools</h3>
-            <span class="text-sm font-medium text-regal-blue">
-              Figma, Adobe XD, <br />Responsive Design,
-              <br />Accessibility,<br />
-              Performance<br />
-              Optimization
-            </span>
           </div>
         </section>
-      </section>
     </main>
 
     <footer class="p-4">
