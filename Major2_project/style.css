@@ -190,6 +190,68 @@ footer section {
   opacity: 1;
 }
 
+/* Add Portfolio Input Section */
+.addPort-input-section {
+  padding: 40px;
+  background: #ffffff1a;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #ffffff1a;
+}
+
+.addPort-form .input-group {
+  display: flex;
+  gap: 16px;
+}
+
+#addPortInput {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid #ffffff33;
+  border-radius: 16px;
+  font-size: 16px;
+  background: #ffffffe6;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px #0000001a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #2d3748;
+}
+
+#addPortInput::placeholder {
+  color: #a0aec0;
+}
+
+#addPortInput:focus {
+  outline: none;
+  border-color: #ffffff99;
+  box-shadow:
+    0 8px 32px #00000026,
+    0 0 0 3px #ffffff1a;
+  transform: translateY(-2px);
+}
+
+.addPort-btn {
+  padding: 16px 32px;
+  background: #4facfe;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 32px #4facfe4d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+}
+
+.addPort-btn :hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px #4facfe66;
+}
+
+.addPort-btn:active {
+  transform: translateY(-1px);
+}
+
 /* Mobile Media Query */
 @media screen and (max-width: 768px) {
   header {

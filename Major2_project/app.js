@@ -4,7 +4,10 @@ const todoForm = document.querySelector("#todo-form");
 const searchButton = document.querySelector(".add-btn");
 const searchResult = document.querySelector("#search-result");
 const todoInput = document.querySelector("#todo-input");
+const portSummary = document.querySelector("#portSummary");
+const addPortButton = document.querySelector(".addPort-btn");
 const useFakeData = true;
+const addPortInput = document.querySelector("#addPort-input");
 
 async function getRecipes(valueID) {
   if (!useFakeData) {
@@ -50,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   searchResult.classList.add("hidden");
 
   todoForm.addEventListener("submit", handleFormSubmit);
+  addPortButton.addEventListener("click", handlePortfolioSubmit);
 });
 // add event listener to the form
 async function handleFormSubmit(event) {
@@ -57,6 +61,7 @@ async function handleFormSubmit(event) {
   const stockId = todoInput.value;
   const listItem = document.createElement("div");
   const change = document.createElement("div");
+  const addProfolio = document.createElement("div");
   const changePercentage = document.createElement("div");
   searchResult.classList.remove("hidden");
   searchResult.classList.add("visible");
@@ -64,8 +69,32 @@ async function handleFormSubmit(event) {
   searchResult.appendChild(listItem);
   searchResult.appendChild(change);
   searchResult.appendChild(changePercentage);
+  searchResult.appendChild(addProfolio);
   const datas = await getRecipes(stockId);
-
+  const cardHTML = `
+ 
+       <br><br>
+       <div class="addPort-group">
+              <h3 class="text-2xl/7 font-medium mb-2">
+            <b>Portfolio Management </b>
+          </h3>
+             Number of shares hold:
+             <br> 
+              <form id="addPort-form" class="addPortForm">
+              <input
+                type="text"
+                id="addPortInput"
+                class="addPortInput"
+                placeholder="Number of shares"
+                required
+                aria-label="Add to Portfolio item"
+              />
+              </form><br><br>
+              <button type="submit" class="addPort-btn" for="addPort-input"   >Update</button>
+      
+      
+    </div>
+  `;
   if (stockId.toUpperCase() == datas["Global Quote"]["01. symbol"]) {
     const priceValue = datas["Global Quote"]["05. price"];
     const changeValue = datas["Global Quote"]["09. change"];
@@ -85,7 +114,17 @@ async function handleFormSubmit(event) {
 
     change.textContent = "Change: $" + changeValue;
     changePercentage.textContent = "Change Percent:  " + changePercentValue;
+    addProfolio.innerHTML += cardHTML;
   } else {
-    console.log("They do not match.");
+    change.textContent = "Sorry cannot find symbol: " + todoInput.value;
+    change.classList.add("drop");
   }
+}
+
+// add event listener to portfolio form
+function handlePortfolioSubmit(event) {
+  event.preventDefault();
+  const stockShares = addPortInput.querySelector("#addPort-input").value;
+  console.log("Number of shares to update:", stockShares);
+  portSummary.textContent = stockShares + " shares added to portfolio.";
 }
