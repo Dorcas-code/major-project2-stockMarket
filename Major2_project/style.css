@@ -11,6 +11,40 @@ header h1 {
   font-size: 32px;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(92, 107, 114, 0.381),
+    rgba(0, 0, 0, 0)
+  );
+  margin: 20px 0;
+}
+
+.header_style {
+  color: #000 !important;
+  margin-right: 10px;
+  font-size: 32px;
+  display: inline-block;
+  position: relative;
+  left: 0;
+  text-decoration: none;
+  background-image: linear-gradient(
+    135deg,
+    #4facfe 0%,
+    #00f2fe 100%
+  ); /* Your gradient colors */
+  background-position: bottom left;
+  background-size: 100% 4px; /* Adjust the second value for the thickness of your underline */
+  background-repeat: no-repeat;
+  padding-bottom: 2px; /* Adds space between text and the underline */
+
+  margin-bottom: 20px;
+
+  text-align: center;
+}
 nav a {
   color: #ffffff;
   text-decoration: none;
@@ -155,6 +189,24 @@ footer section {
   transform: translateY(-2px);
 }
 
+.addToWishList_btn {
+  display: inline-block;
+  max-width: 150px;
+  padding: 5px;
+  background: #4facfe;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 32px #4facfe4d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  position: relative;
+  right: 0;
+}
+
 .add-btn {
   padding: 16px 32px;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -188,6 +240,13 @@ footer section {
 
 .error-message.show {
   opacity: 1;
+}
+
+.PortSummaryHTML {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px #0000001a;
 }
 
 /* Add Portfolio Input Section */

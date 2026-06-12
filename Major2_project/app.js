@@ -2,7 +2,7 @@
 let stockportfolio = [];
 let isClicked = false;
 const todoForm = document.querySelector("#todo-form");
-
+const portSummary_text = document.querySelector(".portSummary_text");
 const searchButton = document.querySelector(".add-btn");
 const searchResult = document.querySelector("#search-result");
 const portfolioSummary = document.querySelector("#portSummary");
@@ -14,6 +14,7 @@ const useFakeData = true;
 const myportValue = document.querySelector(".myportValue");
 const portSummaryValue = document.querySelector(".PortSummaryValue");
 const myStocks = document.querySelector(".myStocks");
+
 // Todo Management Functions
 async function addStock(text) {
   const addStockdata = await getRecipes(text);
@@ -92,34 +93,45 @@ async function handleFormSubmit(event) {
   const listItem = document.createElement("div");
   const change = document.createElement("div");
   const addProfolio = document.createElement("div");
+  const stock_header = document.createElement("div");
+  const addWishList_button = document.createElement("div");
   const changePercentage = document.createElement("div");
   searchResult.classList.remove("hidden");
   searchResult.classList.add("visible");
 
+  searchResult.appendChild(stock_header);
+
+  searchResult.appendChild(addWishList_button);
+  addWishList_button.innerHTML = `<button class="addToWishList_btn" onclick="toggleIcon(this)">
+  <i class="fa-regular fa-heart"></i></button>
+  `;
+  addWishList_button.classList.add("addToWishList_btn");
   searchResult.appendChild(listItem);
   searchResult.appendChild(change);
   searchResult.appendChild(changePercentage);
+  stock_header.classList.add("header_style");
   searchResult.appendChild(addProfolio);
   const datas = await getRecipes(stockId);
   const cardHTML = `
- 
-       <br><br>
+       <hr>
+       <br>
        <div class="addPort-group">
+   
               <h3 class="text-2xl/7 font-medium mb-2">
             <b>Portfolio Management </b>
           </h3>
-             Number of shares hold:
+           <span>  Number of shares hold:</span>
              <br> 
               <form id="addPort-form" class="addPortForm">
               <input
                 type="text"
                 id="addPortInput"
-                class="addPortInput "
+                class="addPortInput  mt-3 mb-3"
                 placeholder="Number of shares"
                 required
                 aria-label="Add to Portfolio item"
-              />
-               <button  onclick="handlePortfolioSubmit(event)" type="submit" class="addPort-btn" for="addPortInput" >Update</button>
+              /><br>
+               <button  onclick="handlePortfolioSubmit(event)" type="submit" class="addPort-btn" for="addPortInput" >Update Shares</button>
               </form><br><br>
              
       
@@ -145,7 +157,7 @@ async function handleFormSubmit(event) {
       changePercentage.classList.add("drop");
       changePercentage.classList.remove("rise");
     }
-
+    stock_header.textContent = datas["Global Quote"]["01. symbol"];
     change.textContent = "Change: $" + changeValue;
     changePercentage.textContent = "Change Percent:  " + changePercentValue;
     addProfolio.innerHTML += cardHTML;
@@ -158,7 +170,7 @@ async function handleFormSubmit(event) {
 // add event listener to portfolio form
 function handlePortfolioSubmit(event) {
   event.preventDefault();
-
+  portSummary_text.classList.add("hidden");
   const stockShares = addPortInput.value;
 
   addStock(todoInput.value);
@@ -174,12 +186,16 @@ function handlePortfolioSubmit(event) {
 
   const portHTML = `
  
-       <br><br>
+       <br>
        <div class="PortSummaryHTML">
               
              Number of shares hold:
               <span class="PortSummaryValue">${stockShares}</span>
-              <br> 
+             
+         </div><br>
+         <div class="PortSummaryHTML">
+              
+          
                      Your current stock value is: $<span class="PortSummaryValue">${priceValues * stockShares}</span>
          </div>
   `;
@@ -196,4 +212,13 @@ function loadStocksFromStorage() {
     // Convert the JSON string back into an array
     return (stockportfolio = JSON.parse(storedStocks));
   }
+}
+
+function toggleIcon(button) {
+  // Target the <i> tag inside the clicked button
+  const icon = button.querySelector("i");
+
+  // Toggle between the 'off' and 'on' state icon classes
+  icon.classList.toggle("fa-regular");
+  icon.classList.toggle("fa-solid");
 }
