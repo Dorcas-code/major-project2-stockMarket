@@ -3,11 +3,14 @@ let stockportfolio = [];
 let isClicked = false;
 const todoForm = document.querySelector("#todo-form");
 const portSummary_text = document.querySelector(".portSummary_text");
+const watchList_text = document.querySelector(".watchList_text");
+const watchList_icon = document.querySelector(".watchList_icon");
 const searchButton = document.querySelector(".add-btn");
 const searchResult = document.querySelector("#search-result");
 const portfolioSummary = document.querySelector("#portSummary");
 const todoInput = document.querySelector("#todo-input");
 const portSummary = document.querySelector("#portSummary");
+const watchList = document.querySelector("#watchList");
 const addPortForm = document.querySelector("#addPort-form");
 const addPortButton = document.querySelector(".addPort-btn");
 const useFakeData = true;
@@ -86,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   todoForm.addEventListener("submit", handleFormSubmit);
 });
+
+async function getData() {}
 // add event listener to the form
 async function handleFormSubmit(event) {
   event.preventDefault();
@@ -176,7 +181,6 @@ function handlePortfolioSubmit(event) {
   addStock(todoInput.value);
 
   const data = loadStocksFromStorage();
-  console.log("Data loaded from storage:", data);
   let priceValues = 0;
   data.map((stock) => {
     if (stock.name === todoInput.value) {
@@ -214,11 +218,40 @@ function loadStocksFromStorage() {
   }
 }
 
-function toggleIcon(button) {
+async function toggleIcon(button) {
+  event.preventDefault();
+  addStock(todoInput.value);
   // Target the <i> tag inside the clicked button
   const icon = button.querySelector("i");
 
   // Toggle between the 'off' and 'on' state icon classes
   icon.classList.toggle("fa-regular");
   icon.classList.toggle("fa-solid");
+  watchList_text.classList.add("hidden");
+  watchList_icon.classList.add("hidden");
+  const watchlistStock = loadStocksFromStorage();
+  const noDuplicates = [...new Set(watchlistStock.map((stock) => stock.name))];
+  const noDuplicatesPrice = [
+    ...new Set(watchlistStock.map((stock) => stock.priceValue)),
+  ];
+  const noDuplicatesChange = [
+    ...new Set(watchlistStock.map((stock) => stock.changeValue)),
+  ];
+  const noDuplicatesPercent = [
+    ...new Set(watchlistStock.map((stock) => stock.changePercentValue)),
+  ];
+
+  const watchListHTML = `
+ 
+       <div class="search-result">
+
+              <span class="header_style">${noDuplicates.join(", ")}</span><br>
+               <div>Price: ${noDuplicatesPrice.join(", ")}</div>
+               <div class="change_watchlist">Change: ${noDuplicatesChange.join(", ")}</div>
+                <div class="change_percent_watchlist">Change Percent: ${noDuplicatesPercent.join(", ")}</div>
+         </div>
+   
+  `;
+  console.log("Watchlist Stock:", stockportfolio);
+  watchList.innerHTML += watchListHTML;
 }
