@@ -13,7 +13,7 @@ const portSummary = document.querySelector("#portSummary");
 const watchList = document.querySelector("#watchList");
 const addPortForm = document.querySelector("#addPort-form");
 const addPortButton = document.querySelector(".addPort-btn");
-const useFakeData = true;
+const useFakeData = false;
 const myportValue = document.querySelector(".myportValue");
 const portSummaryValue = document.querySelector(".PortSummaryValue");
 const myStocks = document.querySelector(".myStocks");
@@ -203,7 +203,7 @@ function handlePortfolioSubmit(event) {
                      Your current stock value is: $<span class="PortSummaryValue">${priceValues * stockShares}</span>
          </div>
   `;
-  portSummary.innerHTML += portHTML;
+  portSummary.innerHTML = portHTML;
 
   myportValue.textContent = priceValues * stockShares;
   myStocks.textContent = stockShares;
@@ -252,6 +252,7 @@ async function toggleIcon(button) {
          </div>
    
   `;
+
   console.log("Watchlist Stock:", stockportfolio);
-  watchList.innerHTML += watchListHTML;
+  watchList.innerHTML = watchListHTML;
 }
